@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="icon" href="/images/pic.png">
+        <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+  <script src="http://kit.fontawesome.com/03f40fc540.js" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <script src="http://kit.fontawesome.com/03f40fc540.js" crossorigin="anonymous"></script>
+
+    <style>
+  .title{
+      background-color: #ff4c68;
+      padding-left: 0;
+      
+  }
+  #subtitle{
+    text-align: left; 
+    padding-top: 90px; 
+    padding-left: 0px;
+  }
+  #logout{
+    color: black;
+    margin-top: 50px;
+}
+#title{
+    font-size: 2.5rem;
+} 
+body,html{
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+#a{
+    background-color: #ff4c68;
+    padding: 15px 20px;
+}
+.row1{
+    margin-top: 40px;
+}
+.form-control{
+    width: 300px;
+    border-width: 2px;
+    border-color: black;
+}
+.image{
+    border-radius: 4rem;
+}
+.footer-icons1{
+    padding-right: 10px;
+    text-align: right;
+  }
+.footer-icons2{
+    padding-left: 10px;
+    text-align: left;
+  }
+@media(max-width:500px){
+  .footer-icons1,.footer-icons2{
+    text-align: center;
+  }
+}
+    </style>
+</head>
+<body>
+  <div id="nav" >
+    <nav class="navbar  navbar-expand-lg navbar-dark title" id="a">
+      <a class="navbar-brand" id="title" href="/signin" style="color: whitesmoke; font-size: 3rem; padding-left: 75px; padding-top: 10px; font-family:'Montserrat',sans-serif;">planIT.</a>
+      <div id="subtitle" style="font-family: 'Kaushan Script', cursive;"> 
+        <h3>Be aware of your expenses!!!</h3>
+      </div>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" style="margin-top: 50px;">
+          <a class="nav-link" id="profile" href="/signin" style="color: white;">home</a>
+        </li>
+        <li class="nav-item" style="padding-top: 0;">
+                <a class="nav-link" id="logout" href="/logout" style="color: white;">logout</a>  
+        </li>
+      </ul>       
+    </nav>          
+  </div>
+ 
+
+
+<form method="POST" action = "/profile"  class="form">
+    <div style="font-family: 'Kaushan Script',cursive; margin-top: 25px;">
+        <center>
+            <h1>
+                Your Profile<br>
+            </h1>
+        </center>
+    </div>
+    <div >
+      <center>
+      <img src="https://www.tutorsvalley.com/api/uploads/tutor/1574383712-1AB5217C-5A13-4888-A5A1-BE0BCADBC655.png" alt="" class="image" width="115px" height="115px">
+    </center>
+    </div>
+      <div class="row row1">
+          <div class="col col1 form-group">
+            <center>
+           <div>
+            <%if(avai){%>
+              <h1><%="Given username  already exists"%></h1>
+              <% }%>  
+           </div>  
+            <h5>    
+                  
+                <label for="firstname" >Name:  <%=user.name%> </label>
+            </h5>
+          <input type="text" name="name" id='name' class="form-control" placeholder="enter if you want to edit" >
+        </center>
+            </div>
+          </div>
+          <div class="row row1">
+            <div class="col col1">
+              <center>
+              <h5>          
+                  <label for="phoneno." >PhoneNo: <%=user.phoneno%></label>
+              </h5>
+            <input type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" name="phoneno" id='phoneno' class="form-control"  placeholder="enter if you want to edit" >
+          </center>
+        </div>
+          </div>
+          <div class="row row1">
+            <div class="col col1 form-group">
+              <center>
+              <h5>  
+                          
+                  <label for="username" >Username: <%=user.username%></label>
+              </h5>
+            <input type="text" name="username" id='username' class="form-control" placeholder="enter if you want to edit" >
+          </center>
+              </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <center>
+                    <button type="submit" class="btn btn-success">Save Changes</button>
+                    <a class="btn btn-info" href="/changepassword" >Change Password</a>
+                </center>
+            </div>
+         
+        </form>
+
+
+        <div style="padding-top: 20px;">
+          <hr>
+          <footer id="footer" style="padding: 4%; text-align: center;">        
+            <div class="row">
+              <div class="col-lg-6 col-sm-6 footer-icons1 " >
+                <img src="/images/mail.png" alt="">
+                E-mail : planit@gmail.com |
+              </div>
+              <div class="col-lg-6 col-sm-6 footer-icons2" >| 
+                <img src="/images/call.png" alt="">
+                Phone : 8978254888
+              </div>
+            </div>      
+          </footer>
+          </div>
+</body>
+</html>

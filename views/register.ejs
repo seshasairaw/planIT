@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Sign Up</title>
+  <link rel="icon" href="/images/pic.png">
+  <script src="http://kit.fontawesome.com/03f40fc540.js" crossorigin="anonymous"></script>
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    
+    <link rel="stylesheet" href="register.css">
+   
+
+</head>
+
+<body style="background-size: auto;   ">
+
+    
+    
+<div class="row" style="padding-bottom: 27.5px; background-color: #ff4c68;" >
+  <div class="col-3" style="text-align: center; padding-left: 150px;">
+      <a  class="navbar-brand " href="/" style="color: whitesmoke; font-size: 3rem; padding-top: 20px; font-family:'Montserrat',sans-serif;" class="heading">planIT.</a>
+  </div>
+  <div class="col-12" style="text-align: left; padding-left: 275px; font-family: 'Kaushan Script', cursive; margin-left: 0px;">
+      <h3>Be aware of your expenses!!!</h3>
+  </div>
+</div>
+            
+          <!-- </nav> -->
+
+    </div>
+
+  <div class="container" style="background:#fff;
+    width: 500px;
+    height: 755px;
+    margin-top: 30px;border-radius: 1.5rem;">
+    <form method="POST" action = "/signup"  style=" width:400px; margin:auto">
+    <div class="row">
+      <div class="col" style="font-family: 'kaushan script',cursive;">
+        <h3>
+            <center>    
+                <strong >SIGN UP</strong>
+            </center>
+        </h3>
+        
+        <hr>
+      </div>
+    </div>
+    <div>
+      <%if(x){%>
+        <small><%="Given user name or email already exists"%></small>
+        <% }%>
+        <%if(y){%>
+        <small><%="Phone should be of 10 digits"%></small>
+          <% }%>
+      <% if(z){%>
+      <small><%="Username should be between 3 t0 20"%></small>
+        <% }%>
+        <% if(p){%>
+          <small><%="Password should be between 8 and 20"%></small>
+            <% }%>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          
+            <h5>          
+                <label for="name" >Firstname</label>
+            </h5>
+          <input type="text" name="name" id='name' class="form-control" required>
+        </div>
+      </div>
+      <div class="col ">
+        <div class="form-group">
+            <h5>
+                <label for="lastname" >Lastname</label>
+            </h5>
+          <input type="text" name="lastname" id='lastname' class="form-control" required>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+            <h5>
+                <label for="username" >Username</label>
+            </h5>
+          <input type="text" name="username" id='username' class="form-control" required>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+            <h5>
+                <label for="phoneno" >Phone Number</label>
+            </h5>
+              <input type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" name="phoneno" id="phoneno" class="form-control" required>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+        <h5>
+            <label for="email" >Email</label>
+        </h5>
+        <input type="email" name="email" id='email' class="form-control" required>
+    </div>
+    <div class="form-group">
+        <h5>
+            <label for="password" >Password</label>
+        </h5>
+        <input type="password" name="password" id='password' class="form-control" required>
+    </div>
+    <div class="form-group">
+        <h5>
+            <label for="gender" >Gender</label>
+        </h5>
+        <select name="gender" id="gender" class="form-control" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+    <div class="form-group" >
+      <button type="submit" class="btn btn-info" style="width: 200px; text-align: center; margin-left:90px; margin-top:10px;">Register</button>
+      <button class="btn btn-outline-info" style="width: 200px; text-align: center; margin-top: 25px; margin-left:90px;" onclick="window.location.href='/'">Home</button>
+    </div>
+    </form>
+  </div>
+  <div style="padding-top: 20px;">
+    <hr>
+    <footer id="footer" style="padding: 4%; text-align: center;">        
+      <div class="row">
+        <div class="col-6" style="text-align: right; padding-right: 0px;">
+          <img src="/images/mail.png" alt="">
+          E-mail : planit@gmail.com |
+        </div>
+        <div class="col-6" style="text-align: left; padding-left: 0px;">| 
+          <img src="/images/call.png" alt="">
+          Phone : 8978254888
+        </div>
+      </div>      
+    </footer>
+    </div>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

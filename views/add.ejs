@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Expenses</title>
+
+  <script src="Data_Table.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+  <style>
+    .title{
+      background-color: #ff4c68;
+      padding-left: 0;
+      
+  }
+  .scrollable{
+      height: 400px;
+      overflow: scroll;
+  }
+  table thead th{
+    position: sticky;
+    top: -1px;
+}
+  #subtitle{
+    text-align: left; 
+    padding-top: 90px; 
+    padding-left: 0px;
+  }
+  #a{
+    background-color: #ff4c68;
+    padding: 15px 20px;
+}
+body,html{
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+#logout{
+    color: black;
+    margin-top: 50px;
+}
+.table1{
+    font-weight: bold;
+}
+.scrollable::-webkit-scrollbar{
+    width: 0!important;
+  }
+  .scrollable{
+    overflow: -moz-scrollbars-none; 
+  }
+  .scrollable{
+    -ms-overflow-style: none;
+  }
+  .footer-icons1{
+    padding-right: 10px;
+    text-align: right;
+  }
+.footer-icons2{
+    padding-left: 10px;
+    text-align: left;
+  }
+@media(max-width:500px){
+  .footer-icons1,.footer-icons2{
+    text-align: center;
+  }
+}
+    
+  </style>
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Ubuntu:wght@500&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+  <script src="http://kit.fontawesome.com/03f40fc540.js" crossorigin="anonymous"></script>
+</head>
+
+<body onload="loadData()">
+
+  <div id="nav" >
+    <nav class="navbar  navbar-expand-lg navbar-dark title" id="a">
+      <a class="navbar-brand" id="title" href="/signin" style="color: whitesmoke; font-size: 3rem; padding-left: 75px; padding-top: 10px; font-family:'Montserrat',sans-serif;">planIT.</a>
+      <div id="subtitle" style="font-family: 'Kaushan Script', cursive;"> 
+        <h3>Be aware of your expenses!!!</h3>
+      </div>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" style="margin-top: 50px;">
+          <a class="nav-link" id="profile" href="/signin" style="color: white;">home</a>
+        </li>
+        <li class="nav-item" style="padding-top: 0;">
+                <a class="nav-link" id="logout" href="/logout" style="color: white;">logout</a>  
+        </li>
+      </ul>
+    </nav>          
+  </div>
+    
+  <!-- <div id="nav">
+    <nav class="navbar  navbar-expand-lg navbar-dark title" id="a">
+      <a class="navbar-brand" id="title" href="/signin"
+        style="color: whitesmoke; font-size: 3rem; padding-left: 75px; padding-top: 10px; font-family:'Montserrat',sans-serif;">planIT.</a>
+      <div id="subtitle" style="font-family: 'Kaushan Script', cursive;">
+        <h3>Plan your monthly expenses!!!</h3>
+      </div>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" style="margin-top: 50px;">
+          <a class="nav-link" id="profile" href="/signin" style="color: white;">home</a>
+        </li>
+        <li class="nav-item" style="padding-top: 0;">
+          <a class="nav-link" id="logout" href="/logout" style="color: white;">logout</a>
+        </li>
+      </ul>
+
+    </nav>
+  </div> -->
+
+
+  <div style="margin-top: 20px;">
+    <center>
+      <h3>Category:-Food</h3>
+    </center>
+    <hr>
+    <form method="POST" action="/food/add">
+      <div class="row">
+        <div class="col-lg-6 col-sm-12">
+          <div class="form-group" id='description'>
+            <center>
+              <input type="text" for="description" class="form-control" name='description'
+                placeholder="What is your expense?(description)" style="width: 450px;">
+            </center>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-12">
+          <div class="form-group" id='cost'>
+            <center>
+              <input type="number" name='cost' class="form-control" placeholder="How much is your expense?"
+                style="width: 300px;">
+            </center>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-12" style="margin-top: 0;">
+          <center>
+            <button type="submit" class="btn btn-success">Add Expense</button>
+          </center>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="container scrollable" style="margin-top: 30px;">
+    <table style="width: 100%; margin-top: 0;" id="myTable"
+      class="table  table1 table-bordered table-striped table-hover table-fixed table-sm">
+      <thead class="thead-dark">
+        <tr>
+
+          <th style="width: 7.5%;">S No.</th>
+          <th style="width: 16.5%;">Date</th>
+          <th style="width: 50%;">Description</th>
+          <th style="width: 16.5%;">Cost</th>
+          <th style="width: 9.5%;">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td id="sno"></td>
+          <td id="desc"></td>
+          <td id="cost"></td>
+        </tr>
+      <tbody>
+        <%for(var i=user1.foodexpense.length-1;i>=0;i--){%>
+
+
+        <tr>
+
+          <td id="sno"><%=user1.foodexpense.length-i%></td>
+          <td id="date"><%=user1.foodexpense[i].date%></td>
+          <td id="desc"> <%=user1.foodexpense[i].description%></td>
+          <td id="cost"><%=user1.foodexpense[i].cost%></td>
+          <td>
+            <form action="" method=post>
+              <%var tempo=user1.foodexpense[i]._id%>
+              <a class="btn btn-danger btn-lg" href="/delfood/<%=tempo%>">DELETE</a>
+            </form>
+          </td>
+        </tr>
+        <%}%>
+          </tbody>
+        </tbody>
+          </table>
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <a class="btn btn-outline-success done" href="/signin">DONE</a>
+      </div>
+
+
+
+      <div style="padding-top: 20px;">
+        <hr>
+        <footer id="footer" style="padding: 4%; text-align: center;">        
+          <div class="row">
+            <div class="col-lg-6 col-sm-6 footer-icons1 " >
+              <img src="/images/mail.png" alt="">
+              E-mail : planit@gmail.com |
+            </div>
+            <div class="col-lg-6 col-sm-6 footer-icons2" >| 
+              <img src="/images/call.png" alt="">
+              Phone : 8978254888
+            </div>
+          </div>      
+        </footer>
+        </div>
+
+
+</body>
+</html>

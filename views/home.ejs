@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXPENSES</title>
+  <link rel="icon" href="/images/pic.png">
+  <script src="expenses.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+  <script src="http://kit.fontawesome.com/03f40fc540.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+  <!-- <link rel="stylesheet" href="expenses.css"> -->
+  <style>
+    body,html{
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+#a{
+    background-color: #ff4c68;
+    padding: 15px 20px;
+}
+ #logout{
+    color: black;
+    margin-top: 50px;
+} 
+ #title{
+    font-size: 2.5rem;
+} 
+#button{
+    margin-left: auto;
+    border-radius: 0px;
+}
+
+ .fas1{ 
+    margin-top: 75px;
+    margin-left: 175px;
+}  
+ .fas1:hover{
+    color: red;
+    
+} 
+.subheading{
+    margin-left: 175px;
+    margin-top: 15px;
+    
+}
+#food_id{
+    margin-left: 65px;
+}
+#transport_id{
+    margin-left: 90px;
+}
+#entertainment_id{
+    margin-left: 100px;
+}
+#shopping_id{
+    margin-left: 65px;
+}
+#Maintainance_id{
+    margin-left: 90px;
+}
+#miscellaneous_id{
+    margin-left: 100px;
+}
+
+#food_sub{
+    position: relative;
+    left: 3.5px;
+}
+#trans_sub{
+    position: relative;
+    right: 10px;
+}
+#entertain_sub{
+    position: relative;
+    right: 31px;
+}
+#maintain_sub{
+    position: relative;
+    right: 21.5px;
+}
+#miscellaneous_sub{
+    position: relative;
+    right: 31.5px;
+}
+#footer_id1{
+  text-align: right;
+}
+#footer_id2{
+  text-align: left;
+}
+@media(max-width:500px){
+    .footer_class{
+      text-align: center;
+    }
+    #secondrow{
+        margin:auto;
+    }
+     #thirdrow{
+        margin: auto;
+    }
+    .firsttext_mob{
+        position: relative;
+        left: 22px;
+    }
+    .thirdtext_mob{
+        position: relative;
+        right: 5px;
+    }
+    #food_mob{
+        position: relative;
+        left: 80px;
+    }
+    h3{
+        font-size: 1rem;
+    }
+    .addexp_mob{
+        width: 90px;
+        height: 50px;
+        font-size: 0.8rem;
+    }
+    #logout{
+        position: relative;
+        margin-right: 0;
+    }
+    
+}
+.title{
+    /* background-color: #bae5e5; */
+      background-color: #ff4c68;
+      padding-left: 150px;
+      
+  }
+  #subtitle{
+    text-align: left; 
+    padding-top: 90px; 
+    padding-left: 0px;
+  }
+  .img:hover{
+      /* background-color: #ff4c68; */
+      filter:drop-shadow(2px 3px 3px #ff4c68);
+  }
+  .img{
+    margin-top: 75px;
+    margin-left: 160px;
+    width: 80px;
+    height: 80px;
+  }
+  .footer-icons1{
+    padding-right: 10px;
+    text-align: right;
+  }
+.footer-icons2{
+    padding-left: 10px;
+    text-align: left;
+  }
+@media(max-width:500px){
+  .footer-icons1,.footer-icons2{
+    text-align: center;
+  }
+}
+  </style>
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Ubuntu:wght@500&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+  <script src="http://kit.fontawesome.com/03f40fc540.js" crossorigin="anonymous"></script>
+  <script>localStorage.setItem('token', "<%= JSON.stringify(t) %>");</script>
+
+</head>
+
+<body>
+  <div id="nav">
+    <nav class="navbar  navbar-expand-lg navbar-dark " id="a">
+      <a class="navbar-brand" id="title" href="/signin" style="color: whitesmoke; font-size: 3rem; padding-left: 75px; padding-top: 10px; font-family:'Montserrat',sans-serif;">planIT.</a>
+      <div id="subtitle" style="font-family: 'Kaushan Script', cursive;"> 
+        <h3>Be aware of your expenses!!!</h3>
+      </div>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" style="margin-top: 50px;">
+          <a class="nav-link" id="graphs" href="#graphs" style="color: white;">graphs</a>
+        </li>
+        <li class="nav-item" style="margin-top: 50px;">
+          <a class="nav-link" id="profile" href="/profile" style="color: white;">profile</a>
+        </li>
+        <li class="nav-item" style="padding-top: 0;">
+                <a class="nav-link" id="logout" href="/logout" style="color: white;">logout</a>  
+        </li>
+      </ul> 
+    </nav>          
+  </div>
+  <!-- <div id="nav">
+    <nav class="navbar  navbar-expand-lg navbar-dark " id="a">
+      <a class="navbar-brand" id="title" href="/signin"
+        style="color: whitesmoke; font-size: 3rem; padding-left: 75px; padding-top: 10px; font-family:'Montserrat',sans-serif;">planIT.</a>
+      <div id="subtitle" style="font-family: 'Kaushan Script', cursive;">
+        <h3>Plan your monthly expenses!!!</h3>
+      </div>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" style="margin-top: 50px;">
+          <a class="nav-link" id="profile" href="/profile" style="color: white; ">profile</a>
+        </li>
+        <li class="nav-item" style="padding-top: 0;">
+          <a class="nav-link" id="logout" href="/logout" style="color: white;">logout</a>
+        </li>
+      </ul>
+
+    </nav>
+  </div> -->
+
+
+  <br><br>
+
+
+
+  </div>
+  </div>
+
+
+  <section id="firstrow">
+    <div class="row">
+      <!-- <div class="col">
+        <button id="button" class="btn btn-outline-success addexp_mob">ADD EXPENSES</button> 
+      </div>   -->
+      <% var x=0;
+      for(var i=0;i!=user1.foodexpense.length;i++){ 
+        x=x+user1.foodexpense[i].cost;
+     }
+     var e=0;
+      for(var i=0;i!=user1.entertainmentexpense.length;i++){ 
+        e=e+user1.entertainmentexpense[i].cost;
+     }
+     var h=0;
+      for(var i=0;i!=user1.householdexpense.length;i++){ 
+        h=h+user1.householdexpense[i].cost;
+     }
+     var m=0;
+      for(var i=0;i!=user1.miscelleniousexpense.length;i++){ 
+        m=m+user1.miscelleniousexpense[i].cost;
+     }
+     var t=0;
+      for(var i=0;i!=user1.transportexpense.length;i++){ 
+        t=t+user1.transportexpense[i].cost;
+     }
+     var s=0;
+      for(var i=0;i!=user1.shoppingexpense.length;i++){ 
+        s=s+user1.shoppingexpense[i].cost;
+     }
+     var total=s+t+m+x+e+h;
+     %>
+      <div class="col" style="text-align: center; position: relative; right:100px;">
+        <small>
+          <h3 id="total_id">Total Expenses : <%=total%>
+            <!-- <button class="btn check_btn btn-outline-secondary" onclick="total_exp()">check </button> -->
+          </h3>
+        </small>
+      </div>
+    </div>
+  </section>
+  <section id="secondrow">
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <a href="/food/add">
+          <img src="/images/food.png" class="img"></a>
+        <h5 class="subheading" id="food_sub" id="food_mob">Food</h5>
+
+        <p id="food_id" class="firsttext_mob">Your Expenses : <%=x %>
+          <!-- <button class="btn checkbtn btn-outline-secondary"  onclick="check(0)">check</button> -->
+        </p>
+
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <a href="/transport/add">
+          <img src="/images/bus.png" class="img"></a>
+        <h5 class="subheading" id="trans_sub">Transport</h5>
+        <p id="transport_id">Your Expenses : <%=t %>
+          <!-- <button class="btn check_btn btn-outline-secondary"  onclick="check(1)">check</button> -->
+        </p>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <a href="/entertainment/add">
+          <img src="/images/cam.png" class="img"></a>
+        <h5 class="subheading" id="entertain_sub">Entertainment</h5>
+        <%   %>
+        <p id="entertainment_id" class="thirdtext_mob">Your Expenses :<%=e %>
+          <!-- <button class="btn check_btn btn-outline-secondary"  onclick="check(2)">check</button> -->
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section id="thirdrow">
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <a href="/shopping/add">
+          <img src="/images/shop.png" class="img">
+        </a>
+        <h5 class="subheading">Shopping</h5>
+        <p id="shopping_id" class="firsttext_mob">Your Expenses : <%=s %>
+          <!-- <button class="btn checkbtn btn-outline-secondary"  onclick="check(3)">check</button> -->
+        </p>
+
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <a href="/household/add">
+          <img src="/images/home.png" class="img"></a>
+        <h5 class="subheading" id="maintain_sub">Maintainance</h5>
+        <p id="Maintainance_id">Your Expenses : <%=h %>
+          <!-- <button class="btn check_btn sbtn-outline-secondary"  onclick="check(4)">check</button> -->
+        </p>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <a href="/miscellenious/add">
+          <img src="/images/wallet.png" class="img"></a>
+        <h5 class="subheading" id="miscellaneous_sub">Miscellaneous</h5>
+        <p id="miscellaneous_id" class="thirdtext_mob">Your Expenses :<%=m %>
+          <!-- <button class="btn check_btn btn-outline-secondary"  onclick="check(5)">check</button> -->
+        </p>
+      </div>
+    </div>
+
+  </section>
+  <hr>
+  <br><br>
+  <section >
+    <div>
+      <h3 style="text-align: center;">GRAPHICAL REPRESENTATION OF EXPENSE</h3>
+      <br><br>
+      <div class="row my-row">
+
+        <div class="col-lg-6 my-col ">
+          <div class="chart-container" style="position: relative;height: 55vh;width: 55vh;margin-left: 20px;">
+            <canvas id="myChar" style="width:400px; height:400px;display:block"></canvas>
+            <script>
+
+              var ctx1 = document.getElementById('myChar').getContext('2d');
+              var myChar = new Chart(ctx1, {
+                type: 'doughnut',
+                data: {
+                  labels: ['FOOD', 'TRANSPORT', 'ENTERTAINMENT', 'SHOPPING', 'MAINTAINCE', 'MISCELLLENIOUS'],
+                  datasets: [{
+                    label: 'categorical wise representation of expenses',
+                    data: [parseInt("<%=x%>"), parseInt("<%=t%>"), parseInt("<%=e%>"), parseInt("<%=s%>"), parseInt("<%=h%>"), parseInt("<%=m%>")],
+                    backgroundColor: [
+                      'rgba(82, 215, 38, 0.6)',
+                      'rgba(255, 115, 0,0.6)',
+                      'rgba(255, 236, 0, 0.6)',
+                      'rgba(255, 0, 0, 0.6)',
+                      'rgba(0, 126, 214, 0.6)',
+                      'rgba(0, 51, 52, 0.6)'
+                    ],
+                    borderColor: [
+                    'rgba(128, 128, 128, 1)',
+                    'rgba(128, 128, 128, 1)',
+                    'rgba(128, 128, 128, 1)',
+                    'rgba(128, 128, 128, 1)',
+                    'rgba(128, 128, 128, 1)',
+                    'rgba(128, 128, 128, 1)',
+                    ],
+                    borderWidth: 3
+                  }]
+                },
+
+              });
+            </script>
+          </div>
+
+        </div>
+        <div class="col-lg-6 my-col" >
+          <div class="chart-container" style="position: relative;height: 1vh;width: 1vh;"></div>
+          <canvas id="myChart" style="width:400px; height:400px;display:block"></canvas>
+          <script>
+
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+              type: 'radar',
+              data: {
+                labels: ['FOOD', 'TRANSPORT', 'ENTERTAINMENT', 'SHOPPING', 'MAINTAINCE', 'MISCELLLENIOUS'],
+                datasets: [{
+                  label: 'categorical wise representation of expenses',
+                  data: [parseInt("<%=x%>"), parseInt("<%=t%>"), parseInt("<%=e%>"), parseInt("<%=s%>"), parseInt("<%=h%>"), parseInt("<%=m%>")],
+                  backgroundColor: [
+                    'rgba(255, 74, 110, 0.5)'
+                  ],
+                  borderColor: [
+                    'rgba(255, 99, 132, 1)'
+                  ],
+                  borderWidth: 1
+                }]
+              },
+              options: {
+                scales: {
+                  yAxes: [{
+                    ticks: {
+                      // Include a dollar sign in the ticks
+                      display:false
+                      
+                    }
+                  }]
+                }
+              }
+            });
+          </script>
+        </div>
+
+      </div>
+  </section>
+  <section id="graphs">
+    <div style="padding-top: 20px;">
+      <hr>
+      <footer id="footer" style="padding: 4%; text-align: center;">        
+        <div class="row">
+          <div class="col-lg-6 col-sm-6 footer-icons1 " >
+            <img src="/images/mail.png" alt="">
+            E-mail : planit@gmail.com |
+          </div>
+          <div class="col-lg-6 col-sm-6 footer-icons2" >| 
+            <img src="/images/call.png" alt="">
+            Phone : 8978254888
+          </div>
+        </div>      
+      </footer>
+      </div>
+  </section>
+
+
+
+  
+</body>
+
+</html>

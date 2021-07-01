@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Login</title>
+  <link rel="icon" href="/images/pic.png">
+  <!-- CSS stylesheets -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <!-- Bootstrap scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Ubuntu:wght@500&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+  <script src="http://kit.fontawesome.com/03f40fc540.js" crossorigin="anonymous"></script>
+  <style>
+    .form-group {
+      padding-top: 0;
+    }
+
+    .heading {
+      font-family: 'Montserrat', sans-serif;
+      padding-left: 2.5rem;
+      margin-left: 4rem;
+    }
+
+    .subheading {
+      padding-top: 20px;
+    }
+
+    .login_block {
+      margin-top: 50px;
+      border-radius: 1.1rem;
+    }
+
+    .title {
+      /* background-color: #bae5e5; */
+      background-color: #ff4c68;
+      padding-left: 150px;
+    }
+
+    #username {
+      margin-top: 50px;
+    }
+
+    body {
+      /* background-color: #98d6ea; */
+      background-color: #fff;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Kaushan Script', cursive;
+    }
+
+    /* @media (max-width:500px){
+    body{
+        background-color: yellow;
+    }
+    .test{
+        margin-left: 50px;
+        margin-right: 140px;
+    }
+} */
+    .image {
+      border-radius: 4rem;
+
+    }
+    .footer-icons1{
+    padding-right: 10px;
+    text-align: right;
+  }
+.footer-icons2{
+    padding-left: 10px;
+    text-align: left;
+  }
+@media(max-width:500px){
+  .footer-icons1,.footer-icons2{
+    text-align: center;
+  }
+}
+  </style>
+  <!-- <script>
+     localStorage.clear();
+   </script> -->
+</head>
+
+<body>
+
+  <div class="title row">
+    <div class="row" style="padding-bottom: 35px;">
+      <div class="col-3" style="text-align: center;">
+        <a class="navbar-brand " href="/"
+          style="color: whitesmoke; font-size: 3rem; padding-top: 20px; font-family:'Montserrat',sans-serif;"
+          class="heading">planIT.</a>
+      </div>
+      <div class="col-9" style="text-align: left; padding-top: 90px; padding-left: 0px;">
+        <h3>Be aware of your expenses!!!</h3>
+      </div>
+    </div>
+  </div>
+
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6">
+        <div class="container login_block" style="
+    width: 500px;
+    height: 515px;">
+          <h2 class="subheading">
+            <center>
+              <strong>LOGIN</strong><br>
+            </center>
+            <hr>
+          </h2>
+          <div>
+            <center>
+              <img
+                src="https://www.tutorsvalley.com/api/uploads/tutor/1574383712-1AB5217C-5A13-4888-A5A1-BE0BCADBC655.png"
+                alt="" class="image" width="115px" height="115px">
+            </center>
+          </div>
+          <form method="POST" action="/signin">
+            <div class="form-group" id='username' style="margin-top: 0px;">
+              <h5> <label for="username">Username</label></h5>
+              <input type="text" name="username" class="form-control" required placeholder="Enter username">
+              <%if(data.view){%>
+              <small><%=data.msg1%></small>
+              <% }%>
+            </div>
+            <div class="form-group" id='password'>
+              <h5> <label for="password">Password</label></h5>
+              <input type="password" name="password" class="form-control" required placeholder="Enter password">
+              <%if(data.view){%>
+              <small><%=data.msg%></small>
+              <% }%>
+            </div>
+            <div class="  text-center ">
+              <button type="submit" style="width: 250px; text-align: center; margin-top: 20px; margin-left:115px;"
+                class=" btn btn-block mybtn btn-info">Login</button>
+              <a class="btn btn-outline-info"
+                style="width: 250px; text-align: center; margin-top: 20px; margin-left:10px;" href="/">Home</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-3"></div>
+    </div>
+
+
+    <div style="padding-top: 20px;">
+      <hr>
+      <footer id="footer" style="padding: 4%; text-align: center;">        
+        <div class="row">
+          <div class="col-lg-6 col-sm-6 footer-icons1 " >
+            <img src="/images/mail.png" alt="">
+            E-mail : planit@gmail.com |
+          </div>
+          <div class="col-lg-6 col-sm-6 footer-icons2" >| 
+            <img src="/images/call.png" alt="">
+            Phone : 8978254888
+          </div>
+        </div>      
+      </footer>
+      </div>
+</body>
+
+</html>

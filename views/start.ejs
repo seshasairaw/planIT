@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Plan-IT</title>
+  <link rel="icon" href="/images/pic.png">
+  <!-- CSS stylesheets -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="home.css"> -->
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+  <!-- Bootstrap scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <!-- Font Awesome -->
+  <script src="http://kit.fontawesome.com/03f40fc540.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    line-height: 1.5;
+    color: white;
+  }
+  h2{
+    font-family: 'Montserrat', sans-serif;
+    /* font-weight:lighter; */
+    font-size: 3rem;
+    line-height: 1.5;
+  }
+  .carousel-item{
+    padding: 7% 15%;
+  }
+  .container-fluid {
+    padding: 3% 15% 7%;
+  }
+  .cta-matter{
+    color: white;
+    text-align: center;
+    padding: 5%;
+    font-size:2rem;
+  }
+  .download-button {
+    margin: 5% 3% 5% 0;
+  }
+  
+  .features-icons {
+    color: red;
+    text-align: center;
+    margin-left: 145px;
+    margin-bottom: 25px;
+  }
+  
+  .features-icons:hover {
+    color: green;
+  }
+  
+  .features-matter {
+    color: #8f8f8f;
+    text-align: center;
+    padding: 5%;
+  }
+  
+  .features-subheading {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    /* padding: 5%; */
+    padding-bottom: 0;
+  }
+  .footer-icons{
+    margin: 0 2% 0 2%;
+  }
+  .navbar {
+    padding-bottom: 4.5rem;
+    padding-left: 0;
+  }
+  
+  .navbar-brand {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2.5rem;
+    font-weight: normal;
+  }
+  
+  .nav-item {
+    padding: 0 18px;
+  }
+  
+  .nav-link {
+    font-size: 1.2rem;
+    font-weight: lighter;
+  }
+  .press-logo{
+    width: 15%;
+    margin: 20px 20px 50px;
+  }
+  .pricing-column{
+    padding: 3% 2%;
+  }
+  .testimonials-image{
+    width:10%;
+    border-radius: 100%;
+    margin: 20px;
+  }
+  .title-img {
+    width: 60%;
+    /* transform: rotate(25deg); */
+    position: absolute;
+    right: 20%;
+    border-radius: 10%;
+  
+  }
+  #cta{
+    background-color: #ff4c68;
+    padding: 7% 15%;
+    text-align: center;
+  }
+  #cta-text{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    line-height: 1.5;
+    color: white;
+  
+  }
+  #features {
+    padding: 7% 15%;
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
+  }
+  #footer{
+    padding: 4%;
+    text-align: center;
+  }
+  #footer-text{
+    text-align: center;
+    margin-top: 2%;
+      color: #8f8f8f;
+  }
+  #press{
+    background-color: #ff4c68;
+    text-align: center;
+    padding-bottom: 3%;
+  }
+  #pricing{
+    padding: 100px;
+    text-align: center;
+  }
+  #testimonials{
+  
+    text-align: center;
+    background-color: #ff4c68;
+    color: #ffff;
+  }
+  #title {
+    background-color: #ff4c68;
+  }
+  @media (max-width:1028px) {
+  
+    .title-img{
+      transform: rotate(0);
+      position: static;
+    }
+    #title{
+      text-align: center;
+    }
+    .features-icons{
+      margin-left: 300px;
+    }
+  }
+  </style>
+</head>
+
+<body>
+
+  <section id="title">
+    <div class="container-fluid">
+
+
+      <nav class="navbar navbar-expand-lg navbar-dark  ">
+        <a class="navbar-brand" href="/">planIT.</a>
+      </nav> <!-- Nav Bar -->
+
+
+
+
+      <!-- Title -->
+
+      <div class="row">
+        <div class="col-lg-6">
+          <h1>Be aware of your expenses!!!</h1>
+          <!-- <li><a class="btn btn-lg btn-dark download-button" href="/signup?">sign up</a></li> -->
+          <a href="/signup?" class="btn btn-lg btn-dark download-button"> Sign up</a>
+          <a href="/login?"  class="btn btn-lg btn-outline-light download-button">Login</a>
+        </div>
+        <div class="col-lg-6">
+          <img class="title-img" src="/images/download.png" alt="mock">
+        </div>
+      </div>
+  </section>
+
+
+  <!-- Features -->
+
+  <section id="features">
+    <div class="row">
+      <div class="col-lg-4">
+        <img class="features-icons" src="/images/start3.png" alt="mock">
+        <h3 class="features-subheading">Easy to use.</h3>
+        <p class="features-matter">Its very easy to use and can be clearly understood.</p>
+      </div>
+      <div class="col-lg-4">
+        <img class="features-icons" src="/images/start1.png" alt="mock">
+        <h3 class="features-subheading">Statistics</h3>
+        <p class="features-matter">We give Statistics showing your different fields of purchase.</p>
+      </div>
+      <div class="col-lg-4">
+        <img class="features-icons" src="/images/start2.png" alt="mock">
+        <h3 class="features-subheading">Tabular Data</h3>
+        <p class="features-matter">Your expenses are represented in tabular format.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="cta">
+
+    <h3 id="cta-text">Know your  expenses better....</h3>
+    <p class="cta-matter">Know expenses. NO extra expenses.</p>
+    <a href="/signup?" class="btn btn-lg btn-dark download-button"> Sign up</a>
+    <a href="/login?"  class="btn btn-lg btn-outline-light download-button">Login</a>
+  </section>
+
+
+  <!-- Footer -->
+  <div style="padding-top: 20px;">
+    <hr>
+    <footer id="footer" style="padding: 4%; text-align: center;">        
+      <div class="row">
+        <div class="col-6" style="text-align: right; padding-right: 0px;">
+          <img src="/images/mail.png" alt="">
+          E-mail : planit@gmail.com |
+        </div>
+        <div class="col-6" style="text-align: left; padding-left: 0px;">| 
+          <img src="/images/call.png" alt="">
+          Phone : 8978254888
+        </div>
+      </div>      
+    </footer>
+    </div>
+  
+    
+
+</body>
+
+</html>
