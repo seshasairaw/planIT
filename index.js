@@ -28,7 +28,7 @@ mongoose.Promise = global.Promise;
 
 mongoose
   .connect(
-    "mongodb+srv://suchandra:Suchandra123@expenses-8ltf8.mongodb.net/test?retryWrites=true&w=majority",
+    "mongodb+srv://planitmanageexpenses:Planit%402020@cluster0.semjbg8.mongodb.net/test?retryWrites=true&w=majority",
     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
   )
   .then(() => {
